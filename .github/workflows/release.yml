@@ -1,0 +1,66 @@
+name: Build and publish Sprachpilot 0.1.0
+
+'on':
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sprachpilot-release-v0.1.0
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify release target and model files
+        shell: bash
+        run: |
+          test "$GITHUB_REPOSITORY" = sroroxd/ChatGPT-Codex-Connector
+          python tools/verify_assets.py
+          mkdir -p artifacts
+      - name: Prepare Android SDK
+        shell: bash
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - name: Build, unit tests and Android lint
+        shell: bash
+        run: ./gradlew --no-daemon :app:assembleDebug :app:testDebugUnitTest :app:lintDebug 2>&1 | tee artifacts/build-check.txt
+      - name: German speech model smoke test on runner
+        shell: bash
+        run: |
+          python -m pip install -r tools/requirements-host.txt
+          python tools/host_smoke.py tests/fixtures/de-synthetic.wav --output artifacts/host-smoke.json
+      - name: Actual Java VAD integration on runner
+        shell: bash
+        run: |
+          curl --fail --location --retry 3 https://repo.maven.apache.org/maven2/com/microsoft/onnxruntime/onnxruntime/1.31.1/onnxruntime-1.31.1.jar -o "$RUNNER_TEMP/ort.jar"
+          mkdir -p "$RUNNER_TEMP/vad-check"
+          javac -cp "$RUNNER_TEMP/ort.jar" -d "$RUNNER_TEMP/vad-check" app/src/main/java/de/sprachpilot/SileroVad.java tools/VadHostCheck.java
+          java -cp "$RUNNER_TEMP/ort.jar:$RUNNER_TEMP/vad-check" de.sprachpilot.VadHostCheck app/src/main/assets/silero.onnx tests/fixtures/de-synthetic.wav | tee artifacts/java-vad-check.txt
+      - name: Verify APK and package release evidence
+        shell: bash
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk artifacts/Sprachpilot-0.1.0.apk
+          python tools/check_apk.py artifacts/Sprachpilot-0.1.0.apk --build-tools "$ANDROID_HOME/build-tools/35.0.0" --output artifacts/apk-check.json
+          cp app/build/test-results/testDebugUnitTest/TEST-de.sprachpilot.TurnDetectorTest.xml artifacts/unit-tests.xml
+          cp app/build/intermediates/lint_intermediate_text_report/debug/lintReportDebug/lint-results-debug.txt artifacts/lint.txt
+          git archive --format=zip --prefix=sprachpilot/ -o artifacts/Sprachpilot-0.1.0-source.zip HEAD
+          python tools/package_release.py
+      - name: Publish verified test release
+        shell: bash
+        run: |
+          gh release create v0.1.0 --target "$GITHUB_SHA" --title 'Sprachpilot 0.1.0 – lokaler Sprachprototyp (Testversion)' --notes-file artifacts/RELEASE-NOTES.md --prerelease artifacts/Sprachpilot-0.1.0.apk artifacts/Sprachpilot-0.1.0-source.zip artifacts/Sprachpilot-0.1.0-pruefberichte.zip artifacts/SHA256SUMS.txt
+          gh release view v0.1.0 --json url --jq .url >> "$GITHUB_STEP_SUMMARY"

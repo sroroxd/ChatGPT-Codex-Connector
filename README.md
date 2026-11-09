@@ -8,7 +8,7 @@ Der erste Meilenstein ist der überprüfbare Sprachkreislauf. Antworten sind fes
 
 **[Sprachpilot 0.1.0 für das S24 Ultra herunterladen](https://github.com/sroroxd/ChatGPT-Codex-Connector/releases/download/v0.1.0/Sprachpilot-0.1.0.apk)** · [Release mit Quellcode, Prüfsummen und Prüfberichten](https://github.com/sroroxd/ChatGPT-Codex-Connector/releases/tag/v0.1.0)
 
-Auf dem Handy den Download öffnen und die Android-Installation bestätigen. Die APK ist eine Entwicklungsfassung und noch nicht auf einem echten S24 Ultra getestet. SHA-256 der APK: `3494fb905045b58b0754ff8f2f3b66adb5fe6ff02e6c900aa368fb7fd51ee525`.
+Auf dem Handy den Download öffnen und die Android-Installation bestätigen. Die APK ist eine Entwicklungsfassung und noch nicht auf einem echten S24 Ultra getestet. Die aktuelle SHA-256 steht im Release und in dessen `SHA256SUMS.txt`. Der GitHub-Release-Build läuft über `.github/workflows/release.yml`; die Prüfberichte sind angehängt. Sein Entwicklungsschlüssel unterscheidet sich vom früheren lokalen Build.
 
 Dieses Repository ist das eigenständige **Sprachpilot-Projekt**. Es enthält keinen allgemeinen ChatGPT-Connector und gewährt keinen Fernzugriff auf dein Handy. Das Javis-Projekt bleibt davon getrennt. Modell-Dateien und Lizenztexte sind enthalten; die App muss keine Modelle nachladen.
 

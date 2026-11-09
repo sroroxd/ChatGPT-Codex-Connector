@@ -1,5 +1,7 @@
 # Ausgeführte Prüfungen
 
+Diese Datei dokumentiert den ursprünglichen **lokalen Build**. Eine auf GitHub Actions erzeugte Release-APK wird dort erneut geprüft und erhält einen eigenen Entwicklungsschlüssel und eine andere Prüfsumme. Für sie gelten die am GitHub-Release angehängten aktuellen Prüfberichte und `SHA256SUMS.txt`.
+
 Stand: 2026-11-09. Ergebnis gilt für `sprachpilot-0.1.0-debug-arm64.apk`, SHA-256 `3494fb905045b58b0754ff8f2f3b66adb5fe6ff02e6c900aa368fb7fd51ee525`, 95.912.156 Bytes (91,47 MiB).
 
 **Keine dieser Prüfungen lief auf einem echten S24 Ultra. Die Android-App wurde bisher auch nicht in einem Emulator gestartet.** Damit sind deutsche Systemstimme, Mikrofonaufnahme, Echo-Verhalten, sichtbarer Hintergrundbetrieb und akustische Unterbrechung noch nicht zur Nutzung freigeprüft.
