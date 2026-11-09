@@ -26,6 +26,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: android-actions/setup-android@v3
       - name: Verify release target and model files
         shell: bash
         run: |
