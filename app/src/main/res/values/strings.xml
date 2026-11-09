@@ -1,0 +1,8 @@
+<resources>
+    <string name="background_mode">Hintergrundmodus ausdrücklich starten</string>
+    <string name="tts_settings_missing">Bitte Einstellungen → Allgemeine Verwaltung → Text-zu-Sprache öffnen.</string>
+    <string name="pause_duration">Sprechpause bis Antwort: %1$d ms (beim nächsten Start)</string>
+    <string name="no_mic_permission">Kein Mikrofonzugriff. Du kannst ihn über die App-Berechtigungen erlauben.</string>
+    <string name="need_notifications">Für diesen sichtbaren Hintergrundmodus bitte Benachrichtigungen erlauben oder den Modus abwählen.</string>
+    <string name="start_error">Start nicht möglich: %1$s</string>
+</resources>

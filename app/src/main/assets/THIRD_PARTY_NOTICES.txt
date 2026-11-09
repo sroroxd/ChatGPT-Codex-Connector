@@ -1,0 +1,21 @@
+Sprachpilot 0.1.0 - local speech prototype
+
+Vosk Android 0.3.75: Apache License 2.0.
+https://github.com/alphacep/vosk-api
+German model vosk-model-small-de-0.15: Apache License 2.0 per official model list.
+https://alphacephei.com/vosk/models
+
+Silero VAD model v6.2.3: MIT License, Copyright Silero Team.
+https://github.com/snakers4/silero-vad
+
+ONNX Runtime Android 1.31.1: MIT License, Copyright Microsoft Corporation.
+https://github.com/microsoft/onnxruntime
+Upstream third-party notices are included in licenses/ONNX-ThirdPartyNotices.txt.
+
+JNA 5.18.1: dual licensed LGPL 2.1 or later / Apache License 2.0;
+this distribution chooses Apache License 2.0.
+https://github.com/java-native-access/jna
+
+Full license texts and notices are in the licenses/ asset directory.
+System text-to-speech voices are supplied separately by the installed Android TTS provider.
+Piper and local language-model weights are not shipped in this app.

@@ -1,0 +1,96 @@
+{
+  "recorded": "2026-11-09",
+  "sources": {
+    "vosk_model": {
+      "url": "https://alphacephei.com/vosk/models/vosk-model-small-de-0.15.zip",
+      "sha256_archive": "b7e53c90b1f0a38456f4cd62b366ecd58803cd97cd42b06438e2c131713d5e43",
+      "license": "Apache-2.0"
+    },
+    "silero": {
+      "url": "https://raw.githubusercontent.com/snakers4/silero-vad/v6.2.3/src/silero_vad/data/silero_vad.onnx",
+      "license": "MIT"
+    }
+  },
+  "files": [
+    {
+      "path": "app/src/main/assets/model-de/COPYING",
+      "bytes": 10173,
+      "sha256": "bb618af833c817ab01c1564bd3ec75ba4b4f9cf30910a4a2168e30a674ee8cc6"
+    },
+    {
+      "path": "app/src/main/assets/model-de/README",
+      "bytes": 795,
+      "sha256": "cb176919f984b31992c7d21d18e3f0bb4d8b8f307df2fdc6bd25a026573dd64b"
+    },
+    {
+      "path": "app/src/main/assets/model-de/am/final.mdl",
+      "bytes": 15749291,
+      "sha256": "85d414100bb54c8dba6558ce5a6dc908d2fb76b02d9a94c20adbb36c7761811d"
+    },
+    {
+      "path": "app/src/main/assets/model-de/conf/mfcc.conf",
+      "bytes": 108,
+      "sha256": "e13b7e0cf39da86dd267f3e15b06196962971b2a04669120d509295ba8f0823a"
+    },
+    {
+      "path": "app/src/main/assets/model-de/conf/model.conf",
+      "bytes": 289,
+      "sha256": "dd7178da0e99fdbe489816c1e9702c3daa28e02accacc2993e0becb7af33b80c"
+    },
+    {
+      "path": "app/src/main/assets/model-de/graph/Gr.fst",
+      "bytes": 29472167,
+      "sha256": "635cc0dd8b2d301a317613b6d1696540b665088c3efa3e2eb4a1160e884f380f"
+    },
+    {
+      "path": "app/src/main/assets/model-de/graph/HCLr.fst",
+      "bytes": 41892842,
+      "sha256": "cd3508dcfb4548d4f57af1b5018772fd21d16d4cbe1be70e5208dafc443ba14e"
+    },
+    {
+      "path": "app/src/main/assets/model-de/graph/disambig_tid.int",
+      "bytes": 42,
+      "sha256": "527e773cc139c470595024437570d082d2db6c706e65dc9f78f3bdf408239142"
+    },
+    {
+      "path": "app/src/main/assets/model-de/graph/phones/word_boundary.int",
+      "bytes": 4506,
+      "sha256": "019c902cf4af8514d0bf97ead23de2b06379ef151a22034a2cfc65d17b69d2df"
+    },
+    {
+      "path": "app/src/main/assets/model-de/ivector/final.dubm",
+      "bytes": 168048,
+      "sha256": "4346c68660485242e7d3880461b3a23969480abca1e927b41682586da9f2e0b5"
+    },
+    {
+      "path": "app/src/main/assets/model-de/ivector/final.ie",
+      "bytes": 8288887,
+      "sha256": "ff40661514cc028240f3f355732d1192b98962195c42e0ae3a11e84e161d3bbd"
+    },
+    {
+      "path": "app/src/main/assets/model-de/ivector/final.mat",
+      "bytes": 33775,
+      "sha256": "dc3f361dfec8f9535f9eea488ae4580b14389aee7b7e6757418f55916cdd0a67"
+    },
+    {
+      "path": "app/src/main/assets/model-de/ivector/global_cmvn.stats",
+      "bytes": 803,
+      "sha256": "d470998befede6151a99f79eb92fe03db99005548054508c287f139ae73d1426"
+    },
+    {
+      "path": "app/src/main/assets/model-de/ivector/online_cmvn.conf",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app/src/main/assets/model-de/ivector/splice.conf",
+      "bytes": 35,
+      "sha256": "9f0c5f7c82d18eaf25d8bce470efa9f7741f88411fe428774bc0a9bb69a24756"
+    },
+    {
+      "path": "app/src/main/assets/silero.onnx",
+      "bytes": 2327524,
+      "sha256": "1a153a22f4509e292a94e67d6f9b85e8deb25b4988682b7e174c65279d8788e3"
+    }
+  ]
+}
